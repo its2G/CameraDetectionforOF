@@ -1,0 +1,24 @@
+# Ignore the bin directory
+bin/
+
+# Ignore the obj directory 
+obj/
+
+# Ignore all .exe files
+*.exe
+
+# Other files and directories to ignore
+node_modules/
+*.log
+
+.vs/ 
+
+*.sln
+
+*.vcxproj
+
+*vcxproj.user
+
+*.vcxproj.filters
+
+*icon.rc
