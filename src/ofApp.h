@@ -1,21 +1,22 @@
 #pragma once
-
+#include <cstdlib>  // Include the library for system()
 #include "ofMain.h"
-#include "ofxOpenCv.h"
 
 class ofApp : public ofBaseApp {
 public:
     void setup();
     void update();
     void draw();
-    void keyPressed(int key);
 
-    ofVideoGrabber cam;  // Video capture object
-    ofxCvColorImage colorImg;   // Color image for OpenCV
-    ofxCvGrayscaleImage grayImage;  // Grayscale image
-    ofxCvGrayscaleImage grayBg;     // Background image
-    ofxCvGrayscaleImage grayDiff;   // Difference image
+private:
+    ofVideoGrabber vidGrabber;     // Video grabber for the camera input
+    ofImage prevFrame;             // To store the previous frame
+    ofImage diffFrame;             // To store the difference between frames
+    int camWidth;
+    int camHeight;
 
-    int threshold = 90;         // Threshold value for detecting motion
-    bool bLearnBackground = true;  // Flag to learn background
+    ofSoundPlayer   mySound;
+
+    bool motionDetected;  // A flag to indicate whether motion is detected
+    int motionThreshold;  // A threshold for detecting significant motion
 };
